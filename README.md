@@ -121,3 +121,19 @@ Run the sample project and you will have 5 buttons, each showing various usages 
 * [Data Store Guide](/android/guides/datastore) - How to query for data, delete entities 
 * [Security](/android/guides/security) - How to share data or limit read/write access  
 * [User Guide](/android/guides/users) - How to add users to your app and understand authentication
+
+
+##License
+
+
+Copyright (c) 2013 Kinvey Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+in compliance with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License
+is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. See the License for the specific language governing permissions and limitations under
+the License.
