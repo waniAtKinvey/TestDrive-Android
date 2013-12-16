@@ -100,7 +100,7 @@ public class TestDrive extends Activity {
             public void onSuccess(Entity[] result) {
                 bar.setVisibility(View.GONE);
                 for (Entity entity : result) {
-                    Toast.makeText(TestDrive.this,"Entity Retrieved\nTitle: " + entity.getTitle()
+                    Toast.makeText(TestDrive.this,"Load Worked!\nTitle: " + entity.getTitle()
                             + "\nDescription: " + entity.get("Description"), Toast.LENGTH_LONG).show();
                 }
             }
@@ -109,7 +109,7 @@ public class TestDrive extends Activity {
             public void onFailure(Throwable error) {
                 bar.setVisibility(View.GONE);
                 Log.e(TAG, "AppData.get by Query Failure", error);
-                Toast.makeText(TestDrive.this, "Get by Query error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(TestDrive.this, "Load Failed!\n " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
