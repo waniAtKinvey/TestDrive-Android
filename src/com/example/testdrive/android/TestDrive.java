@@ -78,7 +78,7 @@ public class TestDrive extends Activity {
             @Override
             public void onSuccess(Entity result) {
                 bar.setVisibility(View.GONE);
-                Toast.makeText(TestDrive.this,"Entity Retrieved\nTitle: " + result.getTitle()
+                Toast.makeText(TestDrive.this,"Save Worked!\nTitle: " + result.getTitle()
                 + "\nDescription: " + result.get("Description"), Toast.LENGTH_LONG).show();
             }
 
@@ -86,7 +86,7 @@ public class TestDrive extends Activity {
             public void onFailure(Throwable error) {
                 bar.setVisibility(View.GONE);
                 Log.e(TAG, "AppData.getEntity Failure", error);
-                Toast.makeText(TestDrive.this, "Get Entity error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(TestDrive.this, "Save Failed!\n: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
