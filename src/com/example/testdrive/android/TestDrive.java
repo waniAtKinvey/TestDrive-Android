@@ -99,31 +99,28 @@ public class TestDrive extends Activity {
             @Override
             public void onSuccess(Entity[] result) {
                 bar.setVisibility(View.GONE);
-                for (Entity entity : result) {
-                    Toast.makeText(TestDrive.this,"Load Worked!\nTitle: " + entity.getTitle()
-                            + "\nDescription: " + entity.get("Description"), Toast.LENGTH_LONG).show();
-                }
+                
+                Toast.makeText(TestDrive.this,"query Worked!\n Got: " + result.length, Toast.LENGTH_LONG).show();
+                
             }
 
             @Override
             public void onFailure(Throwable error) {
                 bar.setVisibility(View.GONE);
                 Log.e(TAG, "AppData.get by Query Failure", error);
-                Toast.makeText(TestDrive.this, "Load Failed!\n " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(TestDrive.this, "query Failed!\n " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
 
     public void onLoadAllClick(View view) {
         bar.setVisibility(View.VISIBLE);
-        kinveyClient.appData("entityCollection", Entity.class).get(new Query(), new KinveyListCallback<Entity>() {
+        kinveyClient.appData("entityCollection", Entity.class).get(new KinveyListCallback<Entity>() {
             @Override
             public void onSuccess(Entity[] result) {
                 bar.setVisibility(View.GONE);
-                for (Entity entity : result) {
-                    Toast.makeText(TestDrive.this,"Entity Retrieved\nTitle: " + entity.getTitle()
-                            + "\nDescription: " + entity.get("Description"), Toast.LENGTH_LONG).show();
-                }
+                Toast.makeText(TestDrive.this,"Get All Worked!\n Got: " + result.length, Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -151,7 +148,7 @@ public class TestDrive extends Activity {
             public void onFailure(Throwable error) {
                 bar.setVisibility(View.GONE);
                 Log.e(TAG, "AppData.save Failure", error);
-                Toast.makeText(TestDrive.this, "Save All error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(TestDrive.this, "Save error: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
