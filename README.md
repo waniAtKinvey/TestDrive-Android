@@ -6,24 +6,59 @@ In the Kinvey console click "Add an App", enter the name "TestDrive" when prompt
 ## Set up TestDrive Project
 
 1. Download the [TestDrive](https://github.com/KinveyApps/TestDrive-Android/archive/master.zip) project.
+2. Download the latest Kinvey library (zip) and extract the downloaded zip file, from: http://devcenter.kinvey.com/android/downloads
+
+###Eclipse
+
 2. In Eclipse, go to **File &rarr; Import…**
 3. Click **Android &rarr; Existing Android Code into Workspace**
 4. **Browse…** to set **Root Directory** to the extracted zip from step 1
 5. In the **Projects** box, make sure the **TestDrive** project check box is selected. Then click **Finish**.
-6. Download the latest Kinvey library (zip) and extract the downloaded zip file, from: http://devcenter.kinvey.com/android/downloads
-7. Copy all jars in the libs/ folder of the extracted zip to TestDrive's libs/ folder on the file system
-8. Specify your app key and secret in `TestDrive` constant variables
-**appKey** and **appSecret**
+6. Copy all jars in the **libs/** folder of the Kinvey Android library zip to TestDrive's **libs/** folder on the file system
+7. In Eclipse, right click on your project and select **Refresh**
+8. In Eclipse, at the top menu bar, select **Project &rarr; Clean &rarr; Build Project**
+
+###Android Studio
+
+1. In Android Studio, go to **File $rarr; New %rarr; Import Project**
+2. **Browse** to the extracted zip from step 1, and click **OK**
+3. Click **Next** and **Finish**.
+4. **Browse** to the location of your project, and create a new folder called **lib** inside the **app** directory
+5. Copy all jars in the **libs/** folder of the Kinvey Android library zip to the **lib/** folder you just created
+6. Expand **Gradle Scripts** in the **Project** Window, and select `build.gradle(Module:app)`.
+7. Modify `dependencies` section, leaving any existing dependencies in place and replacing the `x.x.x` with the correct version number
+
+```java
+dependencies {    
+    compile files('lib/google-http-client-1.19.0.jar')
+    compile files('lib/google-http-client-android-1.19.0.jar')
+    compile files('lib/google-http-client-gson-1.19.0.jar')
+    compile files('lib/google-http-client-jackson2-1.19.0.jar')
+    compile files('lib/gson-2.1.jar')
+    compile files('lib/guava-18.0.jar')
+    compile files('lib/jackson-core-2.1.3.jar')
+    compile files('lib/kinvey-android-lib-x.x.x.jar')
+    compile files('lib/kinvey-java-x.x.x.jar')
+}
+```
+    
+
+8.  Click the **play** button to start a build, if you still see compilation errors ensure the versions are correctly defined in the compie files
+
+
+###Finally, for all IDEs
+
+Specify your app key and secret in `TestDrive` constant variables **appKey** and **appSecret**
+
+10. 
+    public class TestDrive extends Activity {
+        private String appKey="your_app_key";
+        private String appSecret="your_app_secret";
+
 
 Take a look at our [Getting Started](http://devcenter.kinvey.com/android/guides/getting-started) guide for more information.
 
-```java
-public class TestDrive extends Activity {
 
-    private String appKey="your_app_key";
-    private String appSecret="your_app_secret";
-	
-```
 
 ## Saving Data
 ### Creating Persistable Objects
@@ -35,23 +70,23 @@ With Kinvey's Android library you model data using any class that extends the `G
 ```java
 public class Entity extends GenericJson {
 
-	@Key("_id")
-	private String title;
+  @Key("_id")
+  private String title;
 
-	public Entity() {}
-	
-	public Entity(String title) {
-		super();
-		this.title = title;
-	}
-	
-	public String getTitle() {
-		return title;
-	}
+  public Entity() {}
+  
+  public Entity(String title) {
+    super();
+    this.title = title;
+  }
+  
+  public String getTitle() {
+    return title;
+  }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+  public void setTitle(String title) {
+    this.title = title;
+  }
 }
 ```
 
