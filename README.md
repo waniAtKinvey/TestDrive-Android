@@ -20,7 +20,7 @@ In the Kinvey console click "Add an App", enter the name "TestDrive" when prompt
 
 ###Android Studio
 
-1. In Android Studio, go to **File $rarr; New %rarr; Import Project**
+1. In Android Studio, go to **File &rarr; New &rarr; Import Project**
 2. **Browse** to the extracted zip from step 1, and click **OK**
 3. Click **Next** and **Finish**.
 4. **Browse** to the location of your project, and create a new folder called **lib** inside the **app** directory
@@ -43,7 +43,7 @@ dependencies {
 ```
     
 
-8.  Click the **play** button to start a build, if you still see compilation errors ensure the versions are correctly defined in the compie files
+8.  Click the **play** button to start a build, if you still see compilation errors ensure the versions are correctly defined in the dependencies list
 
 
 ###Finally, for all IDEs
